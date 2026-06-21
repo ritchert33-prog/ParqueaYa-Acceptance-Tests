@@ -2,3 +2,4 @@
 #Ritchert Simeon Tufiño
 #Camila Sanchez Valderrama 
 #Ariana Stefania Gutierrez Goyzueta
+#Jair Alexander Aparcana Vilchez
