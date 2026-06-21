@@ -20,3 +20,4 @@ Feature: Rechazar reservas
     Given una reserva fue rechazada
     When el conductor consulta su historial
     Then el sistema muestra el estado rechazado
+.
