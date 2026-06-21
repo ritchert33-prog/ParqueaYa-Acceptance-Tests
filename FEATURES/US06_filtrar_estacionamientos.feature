@@ -19,4 +19,4 @@ Feature: Filtrar estacionamientos
   Scenario: Limpiar filtros
     Given existen filtros aplicados
     When el usuario selecciona la opción limpiar filtros
-    Then el sistema vuelve a mostrar todos los resultados disponibles
+    Then el sistema vuelve a mostrar todos los resultados disponibles.
