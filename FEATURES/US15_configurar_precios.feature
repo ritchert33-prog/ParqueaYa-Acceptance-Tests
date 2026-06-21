@@ -19,4 +19,4 @@ Feature: Configurar precios
   Scenario: Precio inválido
     Given el propietario ingresa un valor incorrecto
     When intenta guardar la tarifa
-    Then el sistema muestra un mensaje de validación
+    Then el sistema muestra un mensaje de validación.
