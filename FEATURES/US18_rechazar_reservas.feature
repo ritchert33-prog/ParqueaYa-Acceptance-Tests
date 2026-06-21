@@ -1,6 +1,6 @@
 # Epic: EP03 - Gestión de Cochera y Pagos
 # User Story: US18 - Rechazar reservas
-
+Tambien estoy de acuerdo con eso
 Feature: Rechazar reservas
   Como propietario
   Quiero rechazar solicitudes
