@@ -1,5 +1,6 @@
 # Epic: EP03 - Gestión de Cochera y Pagos
 # User Story: US16 - Editar información de cochera
+Si estoy de acuerdo con eso
 
 Feature: Editar información de cochera
   Como propietario
