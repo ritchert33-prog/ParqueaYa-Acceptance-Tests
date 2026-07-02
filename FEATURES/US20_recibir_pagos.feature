@@ -2,21 +2,41 @@
 # User Story: US20 - Recibir pagos
 
 Feature: Recibir pagos
+
   Como propietario
   Quiero recibir pagos digitales
   Para cobrar de forma segura
 
   Scenario: Recepción de pago
-    Given el conductor realiza un pago exitoso
+
+    Given existe la siguiente transacción
+
+      | Operación | Monto |
+      | OP1001 | S/20 |
+
     When la transacción es procesada
+
     Then el sistema registra el ingreso para el propietario
 
   Scenario: Visualización de ingresos
-    Given el propietario recibe pagos por reservas
-    When consulta su historial financiero
+
+    Given existen los siguientes pagos
+
+      | Operación | Monto |
+      | OP1001 | S/20 |
+      | OP1002 | S/35 |
+
+    When el propietario consulta su historial financiero
+
     Then el sistema muestra los ingresos registrados
 
   Scenario: Notificación de pago recibido
-    Given un conductor completa el pago de una reserva
+
+    Given existe el siguiente pago
+
+      | Operación | Estado |
+      | OP1001 | Completado |
+
     When la operación finaliza correctamente
+
     Then el sistema envía una notificación al propietario
