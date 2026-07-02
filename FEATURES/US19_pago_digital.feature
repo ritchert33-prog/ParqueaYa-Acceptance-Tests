@@ -3,21 +3,46 @@
 # Naturaleza: No funcional (seguridad y confiabilidad transaccional)
 
 Feature: Realizar pago digital
+
   Como conductor
   Quiero pagar digitalmente
   Para completar mi reserva de forma segura
 
   Scenario: Pago exitoso
-    Given el conductor posee una reserva activa
-    When realiza el pago mediante un método válido
+
+    Given existe la siguiente reserva
+
+      | Reserva | Monto |
+      | R001 | S/20 |
+
+    When el conductor realiza el siguiente pago
+
+      | Método | Estado |
+      | Tarjeta Visa | Aprobado |
+
     Then el sistema procesa la transacción correctamente
 
   Scenario: Pago rechazado
-    Given el conductor intenta pagar una reserva
-    When la entidad financiera rechaza la operación
+
+    Given existe la siguiente reserva
+
+      | Reserva | Monto |
+      | R002 | S/15 |
+
+    When el conductor realiza el siguiente pago
+
+      | Método | Estado |
+      | Tarjeta Mastercard | Rechazado |
+
     Then el sistema muestra un mensaje de error
 
   Scenario: Comprobante generado
-    Given el pago fue realizado exitosamente
+
+    Given el siguiente pago fue aprobado
+
+      | Operación | Monto |
+      | OP1001 | S/20 |
+
     When la transacción finaliza
+
     Then el sistema genera un comprobante digital
