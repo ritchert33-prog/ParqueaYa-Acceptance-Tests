@@ -2,21 +2,46 @@
 # User Story: US15 - Configurar precios
 
 Feature: Configurar precios
+
   Como propietario
   Quiero establecer tarifas
   Para generar ingresos según mis condiciones
 
   Scenario: Registro de precio
-    Given el propietario administra una cochera publicada
-    When establece una tarifa por hora
+
+    Given existe la siguiente cochera
+
+      | Cochera |
+      | C001 |
+
+    When registra la siguiente tarifa
+
+      | Precio Hora |
+      | S/12 |
+
     Then el sistema guarda el precio correctamente
 
   Scenario: Actualización de precio
-    Given la cochera posee una tarifa registrada
-    When el propietario modifica el precio
+
+    Given existe la siguiente tarifa
+
+      | Precio Hora |
+      | S/10 |
+
+    When registra la nueva tarifa
+
+      | Precio Hora |
+      | S/15 |
+
     Then el sistema actualiza la información
 
   Scenario: Precio inválido
-    Given el propietario ingresa un valor incorrecto
+
+    Given el propietario registra
+
+      | Precio Hora |
+      | -5 |
+
     When intenta guardar la tarifa
-    Then el sistema muestra un mensaje de validación.
+
+    Then el sistema muestra un mensaje de validación
