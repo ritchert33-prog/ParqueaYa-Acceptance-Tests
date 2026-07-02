@@ -3,21 +3,41 @@
 # Naturaleza: No funcional (consistencia / actualización de datos en tiempo real)
 
 Feature: Ver disponibilidad en tiempo real
+
   Como conductor
   Quiero conocer la disponibilidad actual
   Para evitar perder tiempo buscando espacios ocupados
 
   Scenario: Consulta de disponibilidad
-    Given el usuario visualiza una cochera disponible
-    When accede a sus detalles
+
+    Given existen las siguientes cocheras
+
+      | Cochera | Estado |
+      | C001 | Disponible |
+      | C002 | Ocupada |
+
+    When el usuario accede a los detalles
+
     Then el sistema muestra la disponibilidad actualizada
 
   Scenario: Cambio de disponibilidad
-    Given otro conductor reserva una cochera
-    When la disponibilidad cambia
+
+    Given la cochera presenta el siguiente estado
+
+      | Cochera | Estado |
+      | C001 | Disponible |
+
+    When otro conductor realiza una reserva
+
     Then el sistema actualiza la información automáticamente
 
   Scenario: Espacio ocupado
-    Given una cochera ya fue reservada
+
+    Given la siguiente cochera
+
+      | Cochera | Estado |
+      | C003 | Ocupada |
+
     When el usuario intenta seleccionarla
+
     Then el sistema informa que el espacio ya no está disponible
